@@ -1,3 +1,6 @@
+
+#define MQTT_MAX_PACKET_SIZE 512 /* JPM */
+
 #include "MQTT.h"
 #include "application.h"
 
