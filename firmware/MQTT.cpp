@@ -238,7 +238,8 @@ bool MQTT::publish(const char* topic, const uint8_t* payload, unsigned int pleng
         uint16_t length = 5;
         length = writeString(topic,buffer,length);
         uint16_t i;
-        for (i=0;i<plength;i++) {
+        // JPM for (i=0;i<plength;i++) {
+        for (i=0;i<plength && length < MQTT_MAX_PACKET_SIZE;i++) { // JPM
             buffer[length++] = payload[i];
         }
         uint8_t header = MQTTPUBLISH;
